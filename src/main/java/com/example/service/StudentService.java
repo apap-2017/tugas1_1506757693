@@ -2,6 +2,7 @@ package com.example.service;
 
 import java.util.List;
 
+import com.example.model.CourseModel;
 import com.example.model.StudentModel;
 
 public interface StudentService
@@ -19,4 +20,7 @@ public interface StudentService
     
     
     void updateStudent (StudentModel student);
+    
+    
+    CourseModel selectCourse (String id_course);
 }
