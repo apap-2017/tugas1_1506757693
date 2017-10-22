@@ -1,8 +1,52 @@
-<html>
-	<head>
-		<title>Index</title>
-	</head>
-	<body>
-		<h2>Welcome To Tutorial 4 APAP</h2>
-	</body>
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Data Penduduk</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="/css/bootstrap.min.css" />
+<style type="text/css">
+.content {
+	padding: 15px;
+}
+</style>
+</head>
+<body>
+	<div th:replace="fragments/fragment :: header"></div>
+	<div class="content">
+		<h1 class="page-header">Sistem Informasi Kependudukan Online
+			Provinsi DKI Jakarta</h1>
+		<p>Selamat datang di Sistem Informasi Kependudukan Online Provinsi
+			DKI Jakarta</p>
+		<hr />
+
+		<h2>Lihat Data Penduduk Berdasarkan NIK</h2>
+		<form action="/penduduk?nik={NIK}" method="get" class="form-group">
+			<div>
+				<label for="nik">Masukkan Nomor Induk Kependudukan</label><br /> <input
+					type="text" name="nik" class="form-control" />
+			</div>
+			<br/>
+			<div>
+				<button type="submit" name="action" value="view" class="btn btn-primary">Lihat</button>
+			</div>
+		</form>
+
+		<hr />
+
+		<h2>Lihat Data Keluarga Berdasarkan NKK</h2>
+		<form action="/keluarga?nkk={nomor_kk}" method="get" class="form-group">
+			<div>
+				<label for="nomor_kk">Masukkan Nomor Kartu Keluarga</label><br /> <input
+					type="text" name="nomor_kk" class="form-control" />
+			</div>
+			<br/>
+			<div>
+				<button type="submit" name="action" value="view" class="btn btn-primary">Lihat</button>
+			</div>
+		</form>
+	</div>
+</body>
+
 </html>
+

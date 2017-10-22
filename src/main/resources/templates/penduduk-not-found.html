@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Penduduk Not Found</title>
+        <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    </head>
+    <body>
+    	<div th:replace="fragments/fragment :: header"></div>
+    	<h1>Penduduk yang Anda cari tidak ditemukan</h1>
+       	<h3 th:text="'NIK = ' + ${nik}">NIK penduduk</h3>
+    </body>
+</html>

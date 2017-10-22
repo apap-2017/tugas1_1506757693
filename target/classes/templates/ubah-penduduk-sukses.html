@@ -1,0 +1,11 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Sukses Menambahkan Penduduk</title>
+		<link rel="stylesheet" href="/css/bootstrap.min.css" />
+	</head>
+	<body>
+		<div th:replace="fragments/fragment :: header"></div>
+		<h1>Sukses!</h1>
+		<p th:text="'Data penduduk dengan NIK ' + ${nik} + ' berhasil diubah'"></p>
+	</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>View Penduduk by NIK</title>
+<link rel="stylesheet" href="/css/bootstrap.min.css" />
+<style type="text/css">
+.content {
+	padding: 15px;
+}
+</style>
+</head>
+<body>
+	<div th:replace="fragments/fragment :: header"></div>
+	<div class="content">
+		<h1 class="page-header"
+			th:text="'Lihat Data Penduduk - ' + ${penduduk.nik}">judul</h1>
+		<table border="0" width="40%">
+			<tr>
+				<td>NIK</td>
+				<td th:text="${penduduk.nik}"></td>
+			</tr>
+			<tr>
+				<td>Nama</td>
+				<td th:text="${penduduk.nama}"></td>
+			</tr>
+			<tr>
+				<td>Tempat/Tanggal lahir</td>
+				<td th:text="${penduduk.tempat_lahir} + ', ' + ${penduduk.lahir}"></td>
+			</tr>
+			<tr>
+				<td>Alamat</td>
+				<td th:text="${penduduk.alamat}"></td>
+			</tr>
+			<tr>
+				<td>RT/RW</td>
+				<td th:text="${penduduk.rt} + '/' + ${penduduk.rw}"></td>
+			</tr>
+			<tr>
+				<td>Kelurahan/Desa</td>
+				<td th:text="${penduduk.nama_kelurahan}"></td>
+			</tr>
+			<tr>
+				<td>Kecamatan</td>
+				<td th:text="${penduduk.nama_kecamatan}"></td>
+			</tr>
+			<tr>
+				<td>Kota</td>
+				<td th:text="${penduduk.nama_kota}"></td>
+			</tr>
+			<tr>
+				<td>Golongan Darah</td>
+				<td th:text="${penduduk.golongan_darah}"></td>
+			</tr>
+			<tr>
+				<td>Agama</td>
+				<td th:text="${penduduk.agama}"></td>
+			</tr>
+			<tr>
+				<td>Status Perkawinan</td>
+				<td th:text="${penduduk.status_perkawinan}"></td>
+			</tr>
+			<tr>
+				<td>Pekerjaan</td>
+				<td th:text="${penduduk.pekerjaan}"></td>
+			</tr>
+			<tr>
+				<td>Kewarganegaraan</td>
+				<td th:text="${penduduk.kewarganegaraan == 0} ? 'WNA' : 'WNI'"></td>
+			</tr>
+			<tr>
+				<td>Status Kematian</td>
+				<td th:text="${penduduk.status_kematian}"></td>
+			</tr>
+		</table>
+		<button class="btn btn-info" value="save">
+			<a th:href="@{'/penduduk/ubah/' + ${penduduk.nik}}"
+				style="text-decoration: none; color: white;">Ubah Data</a>
+		</button>
+		<form action="/penduduk/mati" method="post" th:object="${penduduk}">
+			<div>
+				<input type="hidden" name="nik" th:value="${penduduk.nik}"
+					th:field="*{nik}" />
+			</div>
+			<div>
+				<button class="btn btn-danger" type="submit" name="action"
+					value="save">Wafat</button>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
+
