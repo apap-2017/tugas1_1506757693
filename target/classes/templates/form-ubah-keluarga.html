@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Form Ubah Keluarga</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="/css/bootstrap.min.css" />
+</head>
+<body>
+	<div th:replace="fragments/fragment :: header"></div>
+	<h1 class="page-header">Ubah Keluarga</h1>
+	<form action="/keluarga/ubah/submit" method="post">
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="alamat">Alamat</label>
+			<div class="col-sm-5">
+				<input type="text" class="form-control" name="alamat" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="rt">RT</label>
+			<div class="col-sm-5">
+				<input type="text" name="rt" class="form-control" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="rw">RW</label>
+			<div class="col-sm-5">
+				<input type="text" name="rw" class="form-control" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="id_kelurahan">Kelurahan/Desa</label>
+			<div class="col-sm-5">
+				<select class="form-control" name="id_kelurahan">
+					<div th:each="kelurahan,iterationStatus: ${kelurahans}">
+						<option th:value="${kelurahan.id}" th:text="${kelurahan.nama_kelurahan}" />
+					</div>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-2">
+				<button type="submit" name="action" value="submit"
+					class="btn btn-primary">Submit</button>
+			</div>
+		</div>
+	</form>
+</body>
+</html>
+

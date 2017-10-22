@@ -7,12 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.model.KeluargaModel;
 import com.example.model.KelurahanModel;
+import com.example.model.PendudukModel;
 import com.example.service.KeluargaService;
 import com.example.service.KelurahanService;
 import com.example.service.PendudukService;
@@ -63,5 +65,12 @@ public class KeluargaController {
 		
 		model.addAttribute("nomor_kk", keluarga.getNomor_kk());
 		return "tambah-keluarga-sukses";
+	}
+	
+	@RequestMapping(value = "/keluarga/ubah/{nomor_kk}", method = RequestMethod.POST)
+	public String ubah(Model model, @PathVariable(value = "nomor_kk") String nomor_kk) {
+		KeluargaModel keluarga = keluargaDAO.selectInfoKeluarga(nomor_kk);
+		model.addAttribute("keluarga", keluarga);
+		return "form-ubah-keluarga";
 	}
 }
