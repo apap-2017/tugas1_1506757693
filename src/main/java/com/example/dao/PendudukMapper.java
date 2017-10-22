@@ -25,5 +25,5 @@ public interface PendudukMapper {
 	void ubahPenduduk(PendudukModel penduduk);
 
 	@Update("UPDATE penduduk SET is_wafat = 1 WHERE nik = #{nik}")
-	void pendudukMati(PendudukModel penduduk);
+	void pendudukMati(@Param("nik") String nik);
 }

@@ -33,8 +33,8 @@ public class PendudukServiceDatabase implements PendudukService {
 	}
 
 	@Override
-	public void pendudukMati(PendudukModel penduduk) {
+	public void pendudukMati(String nik) {
 		log.info("menonaktifkan NIK");
-		pendudukMapper.pendudukMati(penduduk);
+		pendudukMapper.pendudukMati(nik);
 	}
 }

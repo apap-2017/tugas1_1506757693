@@ -9,5 +9,5 @@ public interface PendudukService {
 
 	void ubahPenduduk(PendudukModel penduduk);
 	
-	void pendudukMati(PendudukModel penduduk);
+	void pendudukMati(String nik);
 }

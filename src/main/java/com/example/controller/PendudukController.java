@@ -113,7 +113,8 @@ public class PendudukController {
 	}
 	
 	@RequestMapping(value = "/penduduk/mati", method = RequestMethod.POST)
-	public String updateStatusKematian(Model model, @ModelAttribute PendudukModel penduduk) {
+	public String updateStatusKematian(Model model, @RequestParam(value = "nik") String nik) {
+		model.addAttribute("nik", nik);
 		return "nik-nonaktif";
 	}
 
